@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Base typography reset */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface-950 text-surface-50;
+  }
+
+  /* Typography */
+  h1 {
+    @apply text-4xl font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply text-3xl font-bold tracking-tight;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold tracking-tight;
+  }
+
+  h4 {
+    @apply text-xl font-semibold;
+  }
+
+  h5 {
+    @apply text-lg font-semibold;
+  }
+
+  h6 {
+    @apply font-semibold;
+  }
+
+  /* Form controls */
+  input,
+  select,
+  textarea {
+    @apply w-full rounded border border-surface-700 bg-surface-900 px-3 py-2 text-surface-50 placeholder-surface-500 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-opacity-50;
+  }
+
+  input[type='checkbox'],
+  input[type='radio'] {
+    @apply h-4 w-4;
+  }
+
+  /* Disable default focus outline for inputs, we use ring instead */
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+  }
+
+  /* Button base styles */
+  button {
+    @apply transition-colors duration-200;
+  }
+
+  /* Links */
+  a {
+    @apply text-brand-400 underline transition-colors hover:text-brand-300;
+  }
+
+  a.no-underline {
+    text-decoration: none;
+  }
+
+  /* Code blocks */
+  code {
+    @apply rounded bg-surface-800 px-2 py-1 font-mono text-sm text-amber-200;
+  }
+
+  pre {
+    @apply overflow-x-auto rounded bg-surface-800 p-4;
+  }
+
+  pre code {
+    @apply bg-transparent p-0;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    @apply h-2 w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded bg-surface-700 hover:bg-surface-600;
+  }
+}
+
+@layer components {
+  /* Utility classes for common patterns */
+
+  .glass {
+    @apply backdrop-blur-md bg-white/10;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-md bg-black/30;
+  }
+
+  .glass-card {
+    @apply rounded-lg border border-surface-700 bg-surface-800/30 p-6 backdrop-blur-md transition-all;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-400 to-brand-300 bg-clip-text text-transparent;
+  }
+
+  .input-field {
+    @apply rounded border border-surface-700 bg-surface-900 px-3 py-2 text-surface-50 placeholder-surface-500 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Button variants using CVA can be defined here if needed */
+  .btn-primary {
+    @apply rounded bg-brand-500 px-4 py-2 font-medium text-white transition-colors hover:bg-brand-600 focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-surface-950 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply rounded border border-surface-600 bg-surface-800 px-4 py-2 font-medium text-surface-100 transition-colors hover:bg-surface-700 focus:ring-2 focus:ring-surface-500 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply rounded px-4 py-2 font-medium text-surface-100 transition-colors hover:bg-surface-800 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Card component */
+  .card {
+    @apply rounded-lg border border-surface-700 bg-surface-800 p-6 shadow-lg;
+  }
+
+  .card-hover {
+    @apply transition-all hover:border-surface-600 hover:shadow-xl;
+  }
+
+  /* Flex center utilities */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  /* Container styles */
+  .container {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Grid patterns */
+  .grid-layout {
+    @apply grid gap-6;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center rounded-full bg-brand-500/20 px-3 py-1 text-sm font-medium text-brand-200;
+  }
+
+  /* Divider */
+  .divider {
+    @apply border-t border-surface-700;
+  }
+}
+
+@layer utilities {
+  /* Additional utility classes */
+
+  .text-truncate {
+    @apply overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+
+  .text-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    @apply overflow-hidden;
+  }
+
+  .text-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    @apply overflow-hidden;
+  }
+
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+  }
+
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+  }
+
+  /* Gradient backgrounds */
+  .gradient-brand {
+    @apply bg-gradient-to-r from-brand-600 to-brand-400;
+  }
+
+  .gradient-surface {
+    @apply bg-gradient-to-b from-surface-800 to-surface-900;
+  }
+
+  /* Animations */
+  .animate-in {
+    @apply animate-fade-in;
+  }
+
+  .slide-up-in {
+    @apply animate-slide-up;
+  }
+
+  .slide-down-in {
+    @apply animate-slide-down;
+  }
+
+  /* Shadow utilities */
+  .shadow-brand {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.2), 0 0 60px rgba(59, 130, 246, 0.1);
+  }
+}
+
+@media print {
+  body {
+    @apply bg-white text-black;
+  }
+
+  .schedule-page .schedule-month,
+  .schedule-page .schedule-list {
+    border-color: #ccc !important;
+    background: white !important;
+    color: black !important;
+  }
+
+  .schedule-page button,
+  .schedule-page select {
+    display: none !important;
+  }
+
+  aside,
+  .print\\:hidden {
+    display: none !important;
+  }
+}

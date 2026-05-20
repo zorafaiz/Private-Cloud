@@ -1,0 +1,25 @@
+{
+  "name": "private-cloud",
+  "private": true,
+  "scripts": {
+    "preinstall": "npx only-allow@1.2.1 pnpm",
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "type-check": "turbo type-check"
+  },
+  "devDependencies": {
+    "only-allow": "^1.2.1",
+    "turbo": "^2.0.0",
+    "prettier": "^3.2.0",
+    "eslint": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "typescript": "^5.4.0"
+  },
+  "packageManager": "pnpm@9.1.0",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
